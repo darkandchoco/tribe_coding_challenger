@@ -19,6 +19,7 @@
 		D7F5F31722013737001B495C /* PlacesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5F31622013737001B495C /* PlacesListViewController.swift */; };
 		D7F5F31A2201375E001B495C /* VenueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5F3192201375E001B495C /* VenueTableViewCell.swift */; };
 		D7F5F31C220137D9001B495C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5F31B220137D9001B495C /* Constants.swift */; };
+		D7F5F31F220139FB001B495C /* UIViewcontroller+alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5F31E220139FB001B495C /* UIViewcontroller+alerts.swift */; };
 		F89435AFEE3C5166FA448C3D /* Pods_tribe_coding_challengerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 448F97C274E28109733A305B /* Pods_tribe_coding_challengerUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		D7F5F31622013737001B495C /* PlacesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesListViewController.swift; sourceTree = "<group>"; };
 		D7F5F3192201375E001B495C /* VenueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTableViewCell.swift; sourceTree = "<group>"; };
 		D7F5F31B220137D9001B495C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D7F5F31E220139FB001B495C /* UIViewcontroller+alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewcontroller+alerts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			children = (
 				D7F5F31022013291001B495C /* View Controllers */,
 				D7F5F31822013749001B495C /* View */,
+				D7F5F31D220139E7001B495C /* Extensions */,
 				D7F5F31322013437001B495C /* Utility */,
 				D7F5F3112201329D001B495C /* Supporting Files */,
 			);
@@ -212,6 +215,14 @@
 				D7F5F3192201375E001B495C /* VenueTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D7F5F31D220139E7001B495C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D7F5F31E220139FB001B495C /* UIViewcontroller+alerts.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +462,7 @@
 				D7F5F31A2201375E001B495C /* VenueTableViewCell.swift in Sources */,
 				D7F5F31722013737001B495C /* PlacesListViewController.swift in Sources */,
 				D7F5F2E322013115001B495C /* AppDelegate.swift in Sources */,
+				D7F5F31F220139FB001B495C /* UIViewcontroller+alerts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
