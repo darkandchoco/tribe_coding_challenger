@@ -10,21 +10,23 @@ import Foundation
 import Alamofire
 
 enum Router: URLRequestConvertible {
-    static let baseURLString = "http://testbed.website/Toyota/ServiceBooking/public/api"//"http://qualityassurance.review/Toyota/ServiceBooking/public/api"
+    static let baseURLString = "https://api.foursquare.com/v2"
+    static let CLIENT_ID = "0PYC02LDVKSN1OYNHWJPDLL44TLMKWBDRGT4Z23TYEBT0TXA"
+    static let CLIENT_SECRET = "0YRCME3RJAB5TZKP3T5SMEVATONIQLH1EJVVY2HL3FEYMBIO"
+    static let API_VERSION = "20180323"
     
-    case authenticate(email: String, password: String)
+    case getVenuesNearby(ll: String, limit: Int)
     
     private var method: HTTPMethod {
         switch self {
-        case .authenticate: return .post
+        case .getVenuesNearby: return .get
         }
     }
     
     private var path: String {
         switch self {
-        case .authenticate:
-            return "/login"
-        
+        case .getVenuesNearby:
+            return "/venues/search"
         }
     }
     
@@ -34,22 +36,16 @@ enum Router: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
         
-//        if let token = KeychainSwift().get(Constant.tokenKey.rawValue), token.count != 0 {
-//            urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-//        }
-        
         switch self {
-        case .authenticate(let email, let password):
+        case .getVenuesNearby(let ll, let limit):
             let parameters: [String: Any] = [
-                "email": email,
-                "password": password,
-                "device_name": UIDevice.current.name,
-                "platform": "native",
-                "device_type": "ios",
-                "device_id": UIDevice.current.identifierForVendor!.uuidString,
-                "device_token": "something"
+                "client_id": Router.CLIENT_ID,
+                "client_secret": Router.CLIENT_SECRET,
+                "ll": ll,
+                "limit": limit,
+                "v": Router.API_VERSION
             ]
-            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
         }
         return urlRequest
     }

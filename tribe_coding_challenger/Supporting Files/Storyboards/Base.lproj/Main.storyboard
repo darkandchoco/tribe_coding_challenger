@@ -29,13 +29,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Venue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uan-Pf-ZCX">
-                                                    <rect key="frame" x="15" y="19" width="118" height="37"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Venue" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uan-Pf-ZCX">
+                                                    <rect key="frame" x="15" y="19" width="207" height="37"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGK-VB-ULE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGK-VB-ULE">
                                                     <rect key="frame" x="238" y="27" width="67" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -43,6 +43,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="sGK-VB-ULE" firstAttribute="leading" secondItem="uan-Pf-ZCX" secondAttribute="trailing" constant="16" id="5pU-7k-BeK"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="sGK-VB-ULE" secondAttribute="trailing" id="J4i-fJ-oZx"/>
                                                 <constraint firstItem="uan-Pf-ZCX" firstAttribute="top" secondItem="IRn-xC-HcY" secondAttribute="topMargin" constant="8" id="aqY-6m-AwN"/>
                                                 <constraint firstItem="sGK-VB-ULE" firstAttribute="centerY" secondItem="IRn-xC-HcY" secondAttribute="centerY" id="gVS-tj-jSx"/>

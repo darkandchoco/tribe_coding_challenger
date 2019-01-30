@@ -13,6 +13,7 @@ class PlacesListViewController: UIViewController {
 
     // MARK: - Stored
     private var locationManager: CLLocationManager?
+    private var venues: [Venue] = []
     
     // MARK: - Stored (IBOutlet)
     @IBOutlet weak var placesTableView: UITableView!
@@ -41,6 +42,26 @@ class PlacesListViewController: UIViewController {
             locationManager!.requestLocation()
         }
     }
+    
+    private func searchVenuesNearby(ll: String, limit: Int) {
+        VenueService.shared.getVenuesNearby(ll: ll, limit: limit) { [weak self] (venues, error) in
+            guard let self = self else { return }
+            if let venues = venues {
+                self.venues = venues.sorted(by: { (lvenue, rvenue) -> Bool in
+                    guard let lvenueDistance = lvenue.location?.distance,
+                        let rvenueDistance = rvenue.location?.distance else {
+                            return false
+                    }
+                    return lvenueDistance < rvenueDistance
+                })
+                self.placesTableView.reloadData()
+            } else if let error = error {
+                self.presentErrorAlertController(error: error)
+            } else {
+                self.presentDismissableAlertController(title: "Oops!", message: ErrorMessage.genericError.rawValue)
+            }
+        }
+    }
 }
 
 extension PlacesListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -49,11 +70,12 @@ extension PlacesListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return venues.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.venueCell.rawValue, for: indexPath) as! VenueTableViewCell
+        cell.configure(withVenue: venues[indexPath.row])
         return cell
     }
 }
@@ -77,11 +99,12 @@ extension PlacesListViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard locations.count > 0 else {
+        guard locations.count > 0, let location = locations.first else {
             return
         }
         
-        print(locations.first)
+        let llString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
+        searchVenuesNearby(ll: llString, limit: 10)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

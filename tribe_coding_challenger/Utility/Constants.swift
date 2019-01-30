@@ -11,3 +11,7 @@ import Foundation
 enum CellIdentifier: String {
     case venueCell
 }
+
+enum ErrorMessage: String {
+    case genericError = "Something went wrong, please try again later."
+}
