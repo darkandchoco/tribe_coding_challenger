@@ -68,7 +68,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Places Near Me" id="z3a-cm-iSx"/>
+                    <navigationItem key="navigationItem" title="Places Near Me" id="z3a-cm-iSx">
+                        <barButtonItem key="backBarButtonItem" title=" " id="gDh-EN-cXF"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="placesTableView" destination="jUG-Aq-Yyk" id="NVs-32-YAz"/>
                         <segue destination="uyL-wq-mtd" kind="show" identifier="showVenueDetail" id="cs7-9o-4pQ"/>
@@ -78,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="918.75" y="133.09859154929578"/>
         </scene>
-        <!--Venue Detail View Controller-->
+        <!--Venue Detail-->
         <scene sceneID="3CC-Ft-2Rw">
             <objects>
                 <viewController id="uyL-wq-mtd" customClass="VenueDetailViewController" customModule="tribe_coding_challenger" customModuleProvider="target" sceneMemberID="viewController">
@@ -119,6 +121,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H3y-XQ-PYW"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Venue Detail" id="u5I-Sq-Y2H"/>
                     <connections>
                         <outlet property="venueAddressLabel" destination="baI-rs-xbC" id="TBo-A8-cta"/>
                         <outlet property="venueNameLabel" destination="ZfJ-ek-FUb" id="8Qi-nL-ApK"/>
