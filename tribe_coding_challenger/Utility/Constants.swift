@@ -12,6 +12,10 @@ enum CellIdentifier: String {
     case venueCell
 }
 
+enum SegueIdentifier: String {
+    case showVenueDetail
+}
+
 enum ErrorMessage: String {
     case genericError = "Something went wrong, please try again later."
 }

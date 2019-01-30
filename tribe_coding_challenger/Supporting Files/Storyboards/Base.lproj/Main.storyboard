@@ -13,7 +13,7 @@
         <!--Places Near Me-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PlacesListViewController" customModule="tribe_coding_challenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="VenuesListViewController" customModule="tribe_coding_challenger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,11 +71,62 @@
                     <navigationItem key="navigationItem" title="Places Near Me" id="z3a-cm-iSx"/>
                     <connections>
                         <outlet property="placesTableView" destination="jUG-Aq-Yyk" id="NVs-32-YAz"/>
+                        <segue destination="uyL-wq-mtd" kind="show" identifier="showVenueDetail" id="cs7-9o-4pQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="918.75" y="133.09859154929578"/>
+        </scene>
+        <!--Venue Detail View Controller-->
+        <scene sceneID="3CC-Ft-2Rw">
+            <objects>
+                <viewController id="uyL-wq-mtd" customClass="VenueDetailViewController" customModule="tribe_coding_challenger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qc6-PD-ZGU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfJ-ek-FUb">
+                                <rect key="frame" x="40" y="88" width="240" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13u-9p-Z3V">
+                                <rect key="frame" x="16" y="140" width="60.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address String" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baI-rs-xbC">
+                                <rect key="frame" x="16" y="166" width="288" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="H3y-XQ-PYW" firstAttribute="trailing" secondItem="baI-rs-xbC" secondAttribute="trailing" constant="16" id="2KW-pI-JXz"/>
+                            <constraint firstItem="H3y-XQ-PYW" firstAttribute="trailing" secondItem="ZfJ-ek-FUb" secondAttribute="trailing" constant="40" id="4rt-eV-C8Z"/>
+                            <constraint firstItem="baI-rs-xbC" firstAttribute="leading" secondItem="H3y-XQ-PYW" secondAttribute="leading" constant="16" id="BJ4-vq-Z4h"/>
+                            <constraint firstItem="ZfJ-ek-FUb" firstAttribute="centerX" secondItem="qc6-PD-ZGU" secondAttribute="centerX" id="Kvn-k6-svv"/>
+                            <constraint firstItem="ZfJ-ek-FUb" firstAttribute="top" secondItem="H3y-XQ-PYW" secondAttribute="top" constant="24" id="QkT-3Y-VNf"/>
+                            <constraint firstItem="ZfJ-ek-FUb" firstAttribute="leading" secondItem="H3y-XQ-PYW" secondAttribute="leading" constant="40" id="UQ0-kY-uzo"/>
+                            <constraint firstItem="13u-9p-Z3V" firstAttribute="leading" secondItem="H3y-XQ-PYW" secondAttribute="leading" constant="16" id="VeG-15-wlM"/>
+                            <constraint firstItem="13u-9p-Z3V" firstAttribute="top" secondItem="ZfJ-ek-FUb" secondAttribute="bottom" constant="16" id="XKU-cB-NKZ"/>
+                            <constraint firstItem="baI-rs-xbC" firstAttribute="top" secondItem="13u-9p-Z3V" secondAttribute="bottom" constant="8" id="Y6m-fQ-tx8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H3y-XQ-PYW"/>
+                    </view>
+                    <connections>
+                        <outlet property="venueAddressLabel" destination="baI-rs-xbC" id="TBo-A8-cta"/>
+                        <outlet property="venueNameLabel" destination="ZfJ-ek-FUb" id="8Qi-nL-ApK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xd1-U8-8hB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1703" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GkM-1M-xGW">
@@ -85,6 +136,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BtL-Xs-VUk">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

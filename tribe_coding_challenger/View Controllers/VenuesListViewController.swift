@@ -1,5 +1,5 @@
 //
-//  PlacesListViewController.swift
+//  VenuesListViewController.swift
 //  tribe_coding_challenger
 //
 //  Created by Richmond Ko on 30/01/2019.
@@ -9,12 +9,13 @@
 import UIKit
 import CoreLocation
 
-class PlacesListViewController: UIViewController {
+class VenuesListViewController: UIViewController {
 
     // MARK: - Stored
     private let refreshControl = UIRefreshControl()
     private var locationManager: CLLocationManager?
     private var venues: [Venue] = []
+    private var selectedVenue: Venue?
     
     // MARK: - Stored (IBOutlet)
     @IBOutlet weak var placesTableView: UITableView!
@@ -25,6 +26,13 @@ class PlacesListViewController: UIViewController {
         configureTableView()
         configureLocationManager()
         configureRefreshControl()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifier.showVenueDetail.rawValue {
+            let destination = segue.destination as! VenueDetailViewController
+            destination.venue = selectedVenue
+        }
     }
     
     // MARK: - Instance
@@ -78,7 +86,7 @@ class PlacesListViewController: UIViewController {
     }
 }
 
-extension PlacesListViewController: UITableViewDelegate, UITableViewDataSource {
+extension VenuesListViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -92,9 +100,14 @@ extension PlacesListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(withVenue: venues[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedVenue = venues[indexPath.row]
+        performSegue(withIdentifier: SegueIdentifier.showVenueDetail.rawValue, sender: self)
+    }
 }
 
-extension PlacesListViewController: CLLocationManagerDelegate {
+extension VenuesListViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         guard let locationManager = locationManager else { return }
         switch status {
