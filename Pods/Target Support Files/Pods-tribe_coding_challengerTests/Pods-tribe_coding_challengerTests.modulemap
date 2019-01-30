@@ -1,0 +1,6 @@
+framework module Pods_tribe_coding_challengerTests {
+  umbrella header "Pods-tribe_coding_challengerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
