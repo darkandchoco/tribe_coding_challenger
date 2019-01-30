@@ -12,6 +12,7 @@ import CoreLocation
 class PlacesListViewController: UIViewController {
 
     // MARK: - Stored
+    private let refreshControl = UIRefreshControl()
     private var locationManager: CLLocationManager?
     private var venues: [Venue] = []
     
@@ -23,6 +24,7 @@ class PlacesListViewController: UIViewController {
         super.viewDidLoad()
         configureTableView()
         configureLocationManager()
+        configureRefreshControl()
     }
     
     // MARK: - Instance
@@ -30,6 +32,16 @@ class PlacesListViewController: UIViewController {
         placesTableView.delegate = self
         placesTableView.dataSource = self
         placesTableView.tableFooterView = UIView()
+        placesTableView.refreshControl = refreshControl
+    }
+    
+    private func configureRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(self.updateCurrentLocation), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching venues nearby...")
+    }
+    
+    @objc private func updateCurrentLocation() {
+        locationManager!.requestLocation()
     }
     
     private func configureLocationManager() {
@@ -39,6 +51,7 @@ class PlacesListViewController: UIViewController {
         locationManager!.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
+            refreshControl.beginRefreshing()
             locationManager!.requestLocation()
         }
     }
@@ -55,6 +68,7 @@ class PlacesListViewController: UIViewController {
                     return lvenueDistance < rvenueDistance
                 })
                 self.placesTableView.reloadData()
+                self.refreshControl.endRefreshing()
             } else if let error = error {
                 self.presentErrorAlertController(error: error)
             } else {
@@ -89,11 +103,14 @@ extension PlacesListViewController: CLLocationManagerDelegate {
         case .authorizedWhenInUse:
             locationManager.requestLocation()
         case .denied:
+            refreshControl.endRefreshing()
             locationManager.requestWhenInUseAuthorization()
             presentDismissableAlertController(title: "Error", message: "You have denied location access for this app, please enable this on your settings")
         case .notDetermined:
+            refreshControl.endRefreshing()
             break
         case .restricted:
+            refreshControl.endRefreshing()
             presentDismissableAlertController(title: "Error", message: "Location features are restricted on this device.")
         }
     }
@@ -108,6 +125,7 @@ extension PlacesListViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        refreshControl.endRefreshing()
         presentErrorAlertController(error: error)
     }
 }
