@@ -134,7 +134,7 @@ extension VenuesListViewController: CLLocationManagerDelegate {
         }
         
         let llString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
-        searchVenuesNearby(ll: llString, limit: 10)
+        searchVenuesNearby(ll: llString, limit: 20)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
