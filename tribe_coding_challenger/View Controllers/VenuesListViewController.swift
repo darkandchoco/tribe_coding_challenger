@@ -116,14 +116,11 @@ extension VenuesListViewController: CLLocationManagerDelegate {
         case .authorizedWhenInUse:
             locationManager.requestLocation()
         case .denied:
-            refreshControl.endRefreshing()
             locationManager.requestWhenInUseAuthorization()
             presentDismissableAlertController(title: "Error", message: "You have denied location access for this app, please enable this on your settings")
         case .notDetermined:
-            refreshControl.endRefreshing()
             break
         case .restricted:
-            refreshControl.endRefreshing()
             presentDismissableAlertController(title: "Error", message: "Location features are restricted on this device.")
         }
     }
