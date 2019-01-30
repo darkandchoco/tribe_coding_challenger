@@ -10,12 +10,15 @@
 		6CA21AACDC93A8DFE34057FE /* Pods_tribe_coding_challenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA90968A8040ACEB765611F /* Pods_tribe_coding_challenger.framework */; };
 		B4FEB068EE7DABDEBAEF6150 /* Pods_tribe_coding_challengerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB06331432E21DA02C0F07 /* Pods_tribe_coding_challengerTests.framework */; };
 		D7F5F2E322013115001B495C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5F2E222013115001B495C /* AppDelegate.swift */; };
-		D7F5F2E522013115001B495C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5F2E422013115001B495C /* ViewController.swift */; };
 		D7F5F2E822013115001B495C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F5F2E622013115001B495C /* Main.storyboard */; };
 		D7F5F2EA22013116001B495C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7F5F2E922013116001B495C /* Assets.xcassets */; };
 		D7F5F2ED22013116001B495C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F5F2EB22013116001B495C /* LaunchScreen.storyboard */; };
 		D7F5F2F822013116001B495C /* tribe_coding_challengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5F2F722013116001B495C /* tribe_coding_challengerTests.swift */; };
 		D7F5F30322013116001B495C /* tribe_coding_challengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5F30222013116001B495C /* tribe_coding_challengerUITests.swift */; };
+		D7F5F31522013442001B495C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5F31422013442001B495C /* Router.swift */; };
+		D7F5F31722013737001B495C /* PlacesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5F31622013737001B495C /* PlacesListViewController.swift */; };
+		D7F5F31A2201375E001B495C /* VenueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5F3192201375E001B495C /* VenueTableViewCell.swift */; };
+		D7F5F31C220137D9001B495C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5F31B220137D9001B495C /* Constants.swift */; };
 		F89435AFEE3C5166FA448C3D /* Pods_tribe_coding_challengerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 448F97C274E28109733A305B /* Pods_tribe_coding_challengerUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +51,6 @@
 		D62EF2614B8B92C1C23584CD /* Pods-tribe_coding_challengerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tribe_coding_challengerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tribe_coding_challengerUITests/Pods-tribe_coding_challengerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D7F5F2DF22013115001B495C /* tribe_coding_challenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tribe_coding_challenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F5F2E222013115001B495C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D7F5F2E422013115001B495C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D7F5F2E722013115001B495C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7F5F2E922013116001B495C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7F5F2EC22013116001B495C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +61,10 @@
 		D7F5F2FE22013116001B495C /* tribe_coding_challengerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tribe_coding_challengerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F5F30222013116001B495C /* tribe_coding_challengerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tribe_coding_challengerUITests.swift; sourceTree = "<group>"; };
 		D7F5F30422013116001B495C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7F5F31422013442001B495C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D7F5F31622013737001B495C /* PlacesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesListViewController.swift; sourceTree = "<group>"; };
+		D7F5F3192201375E001B495C /* VenueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTableViewCell.swift; sourceTree = "<group>"; };
+		D7F5F31B220137D9001B495C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				D7F5F31022013291001B495C /* View Controllers */,
+				D7F5F31822013749001B495C /* View */,
+				D7F5F31322013437001B495C /* Utility */,
 				D7F5F3112201329D001B495C /* Supporting Files */,
 			);
 			path = tribe_coding_challenger;
@@ -164,7 +172,7 @@
 		D7F5F31022013291001B495C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D7F5F2E422013115001B495C /* ViewController.swift */,
+				D7F5F31622013737001B495C /* PlacesListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -187,6 +195,23 @@
 				D7F5F2EB22013116001B495C /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D7F5F31322013437001B495C /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D7F5F31422013442001B495C /* Router.swift */,
+				D7F5F31B220137D9001B495C /* Constants.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		D7F5F31822013749001B495C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7F5F3192201375E001B495C /* VenueTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,7 +446,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7F5F2E522013115001B495C /* ViewController.swift in Sources */,
+				D7F5F31C220137D9001B495C /* Constants.swift in Sources */,
+				D7F5F31522013442001B495C /* Router.swift in Sources */,
+				D7F5F31A2201375E001B495C /* VenueTableViewCell.swift in Sources */,
+				D7F5F31722013737001B495C /* PlacesListViewController.swift in Sources */,
 				D7F5F2E322013115001B495C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,7 +556,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -583,7 +611,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
