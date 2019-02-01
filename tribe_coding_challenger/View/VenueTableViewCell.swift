@@ -13,9 +13,9 @@ class VenueTableViewCell: UITableViewCell {
     @IBOutlet weak var venueNameLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
-    func configure(withVenue venue: Venue) {
+    func configure(withVenue venue: VenueData) {
         venueNameLabel.text = venue.name
-        distanceLabel.text = "\(venue.location?.distance ?? 0)m"
+        distanceLabel.text = venue.distance
     }
     
     override func awakeFromNib() {

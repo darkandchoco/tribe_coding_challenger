@@ -11,7 +11,7 @@ import UIKit
 class VenueDetailViewController: UIViewController {
 
     // MARK: - Stored
-    var venue: Venue?
+    var venue: VenueData?
     
     // MARK: - Stored (IBOutlet)
     @IBOutlet weak var venueNameLabel: UILabel!
@@ -27,19 +27,7 @@ class VenueDetailViewController: UIViewController {
     private func setVenueDetail() {
         guard let venue = venue else { return }
         venueNameLabel.text = venue.name
-        
-        guard let formattedAddress = venue.location?.formattedAddress else { return }
-        venueAddressLabel.text = getCompleteAddressString(addressArray: formattedAddress)
+        venueAddressLabel.text = venue.address
     }
-    
-    private func getCompleteAddressString(addressArray: [String]) -> String {
-        var completeAddress = ""
-        for (index, addressString) in addressArray.enumerated() {
-            completeAddress += addressString
-            if index != addressArray.count - 1 {
-                completeAddress += ", "
-            }
-        }
-        return completeAddress
-    }
+
 }

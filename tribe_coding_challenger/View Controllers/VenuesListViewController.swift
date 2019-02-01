@@ -13,9 +13,10 @@ class VenuesListViewController: UIViewController {
 
     // MARK: - Stored
     private let refreshControl = UIRefreshControl()
+    private let venuePresenter = VenuePresenter(venueService: VenueService.shared)
     private var locationManager: CLLocationManager?
-    private var venues: [Venue] = []
-    private var selectedVenue: Venue?
+    private var venuesToDisplay: [VenueData] = []
+    private var selectedVenue: VenueData?
     
     // MARK: - Stored (IBOutlet)
     @IBOutlet weak var placesTableView: UITableView!
@@ -26,6 +27,7 @@ class VenuesListViewController: UIViewController {
         configureTableView()
         configureLocationManager()
         configureRefreshControl()
+        venuePresenter.attachView(view: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -63,27 +65,6 @@ class VenuesListViewController: UIViewController {
             locationManager!.requestLocation()
         }
     }
-    
-    private func searchVenuesNearby(ll: String, limit: Int) {
-        VenueService.shared.getVenuesNearby(ll: ll, limit: limit) { [weak self] (venues, error) in
-            guard let self = self else { return }
-            if let venues = venues {
-                self.venues = venues.sorted(by: { (lvenue, rvenue) -> Bool in
-                    guard let lvenueDistance = lvenue.location?.distance,
-                        let rvenueDistance = rvenue.location?.distance else {
-                            return false
-                    }
-                    return lvenueDistance < rvenueDistance
-                })
-                self.placesTableView.reloadData()
-                self.refreshControl.endRefreshing()
-            } else if let error = error {
-                self.presentErrorAlertController(error: error)
-            } else {
-                self.presentDismissableAlertController(title: "Oops!", message: ErrorMessage.genericError.rawValue)
-            }
-        }
-    }
 }
 
 extension VenuesListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -92,17 +73,17 @@ extension VenuesListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return venues.count
+        return venuesToDisplay.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.venueCell.rawValue, for: indexPath) as! VenueTableViewCell
-        cell.configure(withVenue: venues[indexPath.row])
+        cell.configure(withVenue: venuesToDisplay[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedVenue = venues[indexPath.row]
+        selectedVenue = venuesToDisplay[indexPath.row]
         performSegue(withIdentifier: SegueIdentifier.showVenueDetail.rawValue, sender: self)
     }
 }
@@ -131,11 +112,34 @@ extension VenuesListViewController: CLLocationManagerDelegate {
         }
         
         let llString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
-        searchVenuesNearby(ll: llString, limit: 20)
+        venuePresenter.searchVenuesNearby(ll: llString, limit: 20)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         refreshControl.endRefreshing()
         presentErrorAlertController(error: error)
+    }
+}
+
+extension VenuesListViewController: VenueListView {
+    func setEmptyVenues() {
+        
+    }
+    
+    func presentError(error: Error) {
+        presentErrorAlertController(error: error)
+    }
+    
+    func startLoading() {
+        refreshControl.beginRefreshing()
+    }
+    
+    func finishLoading() {
+        refreshControl.endRefreshing()
+    }
+    
+    func setVenues(venues: [VenueData]) {
+        venuesToDisplay = venues
+        placesTableView.reloadData()
     }
 }
