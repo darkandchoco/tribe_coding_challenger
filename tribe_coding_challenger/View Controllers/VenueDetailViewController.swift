@@ -16,7 +16,8 @@ class VenueDetailViewController: UIViewController {
     // MARK: - Stored (IBOutlet)
     @IBOutlet weak var venueNameLabel: UILabel!
     @IBOutlet weak var venueAddressLabel: UILabel!
-    
+    @IBOutlet weak var primaryCategoryLabel: UILabel!
+
     // MARK: - App View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class VenueDetailViewController: UIViewController {
         guard let venue = venue else { return }
         venueNameLabel.text = venue.name
         venueAddressLabel.text = venue.address
+        primaryCategoryLabel.text = venue.primaryCategory
     }
 
 }

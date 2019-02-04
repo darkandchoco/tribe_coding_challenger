@@ -39,7 +39,8 @@ class VenuePresenter {
                 })
                 let mappedVenues = sortedVenues.map({ (venue) -> VenueData in
                     let address = self.getCompleteAddressString(addressArray: venue.location?.formattedAddress ?? [])
-                    return VenueData(name: venue.name ?? "", address: address, distance: "\(venue.location?.distance ?? 0)m")
+                    let primaryCategory = self.getPrimaryCategory(venue: venue)
+                    return VenueData(name: venue.name ?? "", address: address, distance: "\(venue.location?.distance ?? 0)m", primaryCategory: primaryCategory ?? "")
                 })
                 self.venueListView?.setVenues(venues: mappedVenues)
             } else if let error = error {
@@ -57,5 +58,24 @@ class VenuePresenter {
             }
         }
         return completeAddress
+    }
+
+    private func getPrimaryCategory(venue: Venue) -> String? {
+        var primaryCategoryString: String? = ""
+
+        guard let categories = venue.categories else {
+            return nil
+        }
+
+        for category in categories {
+            guard let isPrimary = category.isPrimary else {
+                continue
+            }
+            if isPrimary {
+                primaryCategoryString = category.name
+            }
+        }
+
+        return primaryCategoryString
     }
 }

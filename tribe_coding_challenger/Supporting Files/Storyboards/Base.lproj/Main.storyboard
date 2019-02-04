@@ -106,6 +106,12 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primary Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-9e-oPP">
+                                <rect key="frame" x="16" y="192" width="134" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -113,23 +119,26 @@
                             <constraint firstItem="H3y-XQ-PYW" firstAttribute="trailing" secondItem="ZfJ-ek-FUb" secondAttribute="trailing" constant="40" id="4rt-eV-C8Z"/>
                             <constraint firstItem="baI-rs-xbC" firstAttribute="leading" secondItem="H3y-XQ-PYW" secondAttribute="leading" constant="16" id="BJ4-vq-Z4h"/>
                             <constraint firstItem="ZfJ-ek-FUb" firstAttribute="centerX" secondItem="qc6-PD-ZGU" secondAttribute="centerX" id="Kvn-k6-svv"/>
+                            <constraint firstItem="kD2-9e-oPP" firstAttribute="leading" secondItem="H3y-XQ-PYW" secondAttribute="leading" constant="16" id="LBq-Yk-Ldy"/>
                             <constraint firstItem="ZfJ-ek-FUb" firstAttribute="top" secondItem="H3y-XQ-PYW" secondAttribute="top" constant="24" id="QkT-3Y-VNf"/>
                             <constraint firstItem="ZfJ-ek-FUb" firstAttribute="leading" secondItem="H3y-XQ-PYW" secondAttribute="leading" constant="40" id="UQ0-kY-uzo"/>
                             <constraint firstItem="13u-9p-Z3V" firstAttribute="leading" secondItem="H3y-XQ-PYW" secondAttribute="leading" constant="16" id="VeG-15-wlM"/>
                             <constraint firstItem="13u-9p-Z3V" firstAttribute="top" secondItem="ZfJ-ek-FUb" secondAttribute="bottom" constant="16" id="XKU-cB-NKZ"/>
                             <constraint firstItem="baI-rs-xbC" firstAttribute="top" secondItem="13u-9p-Z3V" secondAttribute="bottom" constant="8" id="Y6m-fQ-tx8"/>
+                            <constraint firstItem="kD2-9e-oPP" firstAttribute="top" secondItem="baI-rs-xbC" secondAttribute="bottom" constant="8" id="Ye4-p0-yz7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H3y-XQ-PYW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Venue Detail" id="u5I-Sq-Y2H"/>
                     <connections>
+                        <outlet property="primaryCategoryLabel" destination="kD2-9e-oPP" id="9mC-EX-WXu"/>
                         <outlet property="venueAddressLabel" destination="baI-rs-xbC" id="TBo-A8-cta"/>
                         <outlet property="venueNameLabel" destination="ZfJ-ek-FUb" id="8Qi-nL-ApK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xd1-U8-8hB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="133"/>
+            <point key="canvasLocation" x="1702.5" y="132.04225352112675"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GkM-1M-xGW">

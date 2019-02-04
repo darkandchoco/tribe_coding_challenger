@@ -12,4 +12,5 @@ struct VenueData {
     let name: String
     let address: String
     let distance: String
+    let primaryCategory: String
 }
